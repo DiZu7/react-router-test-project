@@ -1,5 +1,5 @@
 import React from 'react';
-import { baseUrl } from '../gateway/gateway';
+import { baseUrl, fetchData } from '../gateway/gateway';
 
 class User extends React.Component {
   state = {
@@ -17,15 +17,9 @@ class User extends React.Component {
   }
 
   fetchUserData = () => {
-    fetch(`${baseUrl}/${this.props.match.params.user_id}`)
-      // fetch(`https://api.github.com/users/${this.props.match.params.user_id}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('failed request');
-        }
-        return response.json();
-      })
-      .then((data) => this.setState({ userData: data }));
+    fetchData(this.props.match.params.user_id).then((data) =>
+      this.setState({ userData: data })
+    );
   };
 
   render() {
