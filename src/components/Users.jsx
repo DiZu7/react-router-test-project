@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import './index.scss';
 import User from './User';
 
 const Users = ({ match }) => {

@@ -1,9 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import Home from './Home';
-import Users from './Users';
-
-import './index.scss';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import Users from './components/Users';
 
 const App = () => {
   return (

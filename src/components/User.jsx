@@ -1,7 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-
-import './index.scss';
+import { baseUrl } from '../gateway/gateway';
 
 class User extends React.Component {
   state = {
@@ -19,14 +17,15 @@ class User extends React.Component {
   }
 
   fetchUserData = () => {
-    fetch(`https://api.github.com/users/${this.props.match.params.user_id}`)
-      .then(response => {
+    fetch(`${baseUrl}/${this.props.match.params.user_id}`)
+      // fetch(`https://api.github.com/users/${this.props.match.params.user_id}`)
+      .then((response) => {
         if (!response.ok) {
           throw new Error('failed request');
         }
         return response.json();
       })
-      .then(data => this.setState({ userData: data }));
+      .then((data) => this.setState({ userData: data }));
   };
 
   render() {
