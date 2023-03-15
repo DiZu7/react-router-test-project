@@ -18,7 +18,9 @@ const App = () => {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/users" component={Users}></Route>
+        <Route path="/users">
+          <Users />
+        </Route>
       </BrowserRouter>
     </div>
   );
